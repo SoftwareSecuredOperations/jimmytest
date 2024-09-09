@@ -1,4 +1,7 @@
-import socket,subprocess,os
+import logging
+import sonrai.platform.aws.arn
+
+log = logging.getLogger()
 
 def run(ctx):
     x = 'hi there'
