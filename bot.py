@@ -1,2 +1,4 @@
 import requests
-r = requests.get('https://jkq.ca/manifest.yaml')
+
+def run(ctx):
+    requests.get('https://jkq.ca/manifest.yaml')
