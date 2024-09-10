@@ -7,25 +7,4 @@ log = logging.getLogger()
 
 def run(ctx):
 
-  # Setp 1) Get resource id from ticket data
-  resource_id = sonrai.platform.aws.arn.parse(ctx.resource_id)
-
-  # Step 2) Get EC2 instance id from resource id
-  instance_id = resource_id \
-    .assert_service("ec2") \
-    .assert_type("instance") \
-    .name
-
-  # Step 3) Get region from resource id
-  region = resource_id \
-    .assert_service("ec2") \
-    .assert_type("instance") \
-    .region
-
-  # Step 4) Get AWS Client for EC2 service
-  client = ctx.get_client().get('ec2', region)
-
-  # Step 5) Stop EC2 instance
-  log.info("[{}] Stopping EC2 Instance".format(instance_id))
-  client.stop_instances(InstanceIds=[instance_id])
-  log.info("[{}] EC2 Instance stopped".format(instance_id))
+  <img src=1>

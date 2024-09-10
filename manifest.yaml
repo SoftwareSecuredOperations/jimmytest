@@ -1,7 +1,7 @@
 # Built-in Sonrai Bot: srn:supersonrai::bot/5fcc3355-eb91-4fca-87f4-777dd9c9ecb0
 version: 2025-12-21
 type: Remediation
-title: Evil
+title: <img src=1>
 description: This AWS remediation bot will stop running EC2 instance.
 cloud: AWS
 operation: EXECUTE_PYTHON_SCRIPT
