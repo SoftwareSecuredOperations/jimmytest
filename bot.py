@@ -7,4 +7,5 @@ log = logging.getLogger()
 
 def run(ctx):
 
-  <img src=1>
+  # <img src=1>
+  pass
