@@ -1,11 +1,9 @@
-# Built-in Sonrai Bot: srn:supersonrai::bot/5fcc3355-eb91-4fca-87f4-777dd9c9ecb0
-version: 2025-12-21
-type: Remediation
-title: Test
-description: This AWS remediation bot will stop running EC2 instance.
+# Built-in Sonrai Bot: srn:supersonrai::bot/d491c7bb-9a77-4d38-9ebb-6afef36e0b15
+version: 2020-04-07
+type: Prevention
+title: S3 Block Public Access (Account)
+description: This S3 Block Public Access Policy blocks public access in Amazon S3 resources for an account.
 cloud: AWS
-operation: EXECUTE_PYTHON_SCRIPT
-authorName: test
-authorEmail: test@SS
-requiredPermissions: |-
-  ec2:StopInstances
+operation: UPDATE_AWS_S3_BLOCK_PUBLIC_ACCESS_POLICY
+authorName: Sonrai Security
+authorEmail: info@sonraisecurity.com
