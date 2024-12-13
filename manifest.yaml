@@ -1,9 +1,9 @@
-version: 2024-12-21
+version: 2020-12-21
 type: Remediation
-title: Delete VPC
-cloud: AWS
+title: Enable versioning on S3 Bucket
 operation: EXECUTE_PYTHON_SCRIPT
-authorName: Software Secured
-authorEmail: jbotham@softwaresecured.com
+authorName: Sonrai Security
+cloud: AWS
+authorEmail: info@sonraisecurity.com
 requiredPermissions: |-
-  ec2:DeleteVpc
+  s3:PutBucketVersioning
