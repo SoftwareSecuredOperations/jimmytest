@@ -1,9 +1,10 @@
-# Built-in Sonrai Bot: srn:supersonrai::bot/d491c7bb-9a77-4d38-9ebb-6afef36e0b15
-version: 2020-04-07
-type: Prevention
-title: S3 Block Public Access (Account)
-description: This S3 Block Public Access Policy blocks public access in Amazon S3 resources for an account.
+# Built-in Sonrai Bot: srn:supersonrai::bot/79067526-7089-4ED9-A205-12BB65C8C2E6
+version: 2020-12-21
+type: Remediation
+title: Delete VPC
 cloud: AWS
-operation: UPDATE_AWS_S3_BLOCK_PUBLIC_ACCESS_POLICY
+operation: EXECUTE_PYTHON_SCRIPT
 authorName: Sonrai Security
 authorEmail: info@sonraisecurity.com
+requiredPermissions: |-
+  ec2:DeleteVpc
