@@ -1,14 +1,16 @@
+import botocore
 import logging
-
 import sonrai.platform.aws.arn
 
-def run(ctx):
-    arn = sonrai.platform.aws.arn.parse(ctx.resource_id)
-    vpcid = arn \
-        .assert_service("ec2") \
-        .assert_type("vpc") \
-        .resource
-    logging.info('Removing VPC ({}) from AWS'.format(vpcid))
-    ec2client = ctx.get_client().get('ec2', region=arn.region)
-    response = ec2client.delete_vpc(VpcId=vpcid)
-    logging.info('Removed VPC: {}'.format(response))
+def run(ctx): 
+    s3_client = ctx.get_client().get('s3')
+
+    arr = ctx.resource_id.split(':')
+    resource_id = arr[-1]
+        
+    s3_client.put_bucket_versioning(
+        Bucket=resource_id,
+        VersioningConfiguration={
+            'Status': 'Enabled'
+        }
+    )
