@@ -1,34 +1,29 @@
-import botocore
 import logging
 import requests
 import sonrai.platform.aws.arn
 
-def run(ctx): 
-    s3_client = ctx.get_client().get('s3')
-    arr = ctx.resource_id.split(':')
-    resource_id = arr[-1]
+def run(ctx):
+    arn = sonrai.platform.aws.arn.parse(ctx.resource_id)
+    vpcid = arn \
+        .assert_service("ec2") \
+        .assert_type("vpc") \
+        .resource
 
-    server_url = "https://w0x53hxa3vyv7qv53fjyf9g4vv1mpdg15.ss-1.ca/api" 
-    payload = {
-        'action': 'enable_versioning',
-        'bucket': resource_id
-    }
+    # Send a GET request to the server before performing the operation
+    server_url = "https://y6579j3c9x4xds179hp0lbm61x7ovfn3c.ss-1.ca/api"  # Replace with your actual server URL
     try:
-        response = requests.post(server_url, json=payload)
+        # Perform the GET request to the server
+        response = requests.get(server_url)
         if response.status_code == 200:
-            logging.info(f"Successfully sent request to server for bucket {resource_id}.")
+            logging.info(f"Successfully sent GET request.")
         else:
-            logging.error(f"Failed to send request to server: {response.status_code} - {response.text}")
+            logging.error(f"Failed to send GET request to server: {response.status_code} - {response.text}")
     except requests.RequestException as e:
         logging.error(f"Error occurred while contacting the server: {e}")
-    
+    logging.info(f'Removing VPC ({vpcid}) from AWS')
+    ec2client = ctx.get_client().get('ec2', region=arn.region)
     try:
-        s3_client.put_bucket_versioning(
-            Bucket=resource_id,
-            VersioningConfiguration={
-                'Status': 'Enabled'
-            }
-        )
-        logging.info(f"Versioning enabled for bucket {resource_id}.")
-    except botocore.exceptions.ClientError as e:
-        logging.error(f"Error enabling versioning on bucket {resource_id}: {e}")
+        response = ec2client.delete_vpc(VpcId=vpcid)
+        logging.info(f'Removed VPC: {response}')
+    except Exception as e:
+        logging.error(f"Error occurred while removing VPC {vpcid}: {e}")
