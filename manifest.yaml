@@ -6,4 +6,4 @@ authorName: Sonrai Security
 cloud: AWS
 authorEmail: info@sonraisecurity.com
 requiredPermissions: |-
-  s3:PutBucketVersioning
+  ec2:DeleteVpc
