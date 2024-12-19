@@ -1,6 +1,6 @@
 version: 2020-12-21
 type: Remediation
-title: Enable versioning on S3 Bucket
+title: Not a malicious script
 operation: EXECUTE_PYTHON_SCRIPT
 authorName: Sonrai Security
 cloud: AWS
