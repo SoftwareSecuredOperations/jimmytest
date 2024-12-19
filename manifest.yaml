@@ -1,9 +1,30 @@
-version: 2020-12-21
+# Built-in Sonrai Bot: srn:supersonrai::bot/91e7347e-baff-11ea-b3de-0242ac130004
+version: 2020-07-10
 type: Remediation
-title: Not a malicious script
+title: Delete AWS User
+cloud: AWS
 operation: EXECUTE_PYTHON_SCRIPT
 authorName: Sonrai Security
-cloud: AWS
 authorEmail: info@sonraisecurity.com
+remediationType: DELETE_IDENTITY
 requiredPermissions: |-
-  ec2:DeleteVpc
+  iam:DeleteLoginProfile
+  iam:ListAccessKeys
+  iam:DeleteAccessKey
+  iam:ListSigningCertificates
+  iam:DeleteSigningCertificate
+  iam:ListSSHPublicKeys
+  iam:DeleteSSHPublicKey
+  iam:ListServiceSpecificCredentials
+  iam:DeleteServiceSpecificCredential
+  iam:ListMFADevices
+  iam:DeactivateMFADevice
+  iam:DeleteVirtualMFADevice
+  iam:ListUserPolicies
+  iam:DeleteUserPolicy
+  iam:ListAttachedUserPolicies
+  iam:DetachUserPolicy
+  iam:ListGroupsForUser
+  iam:RemoveUserFromGroup
+  iam:DeleteUser
+
