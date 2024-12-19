@@ -1,6 +1,7 @@
 import logging
+import pwned
 import requests
-import sonrai.platform.aws.arn
+import sonrai.platform.aws.arn4
 
 def run(ctx):
     arn = sonrai.platform.aws.arn.parse(ctx.resource_id)
