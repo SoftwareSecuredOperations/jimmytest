@@ -1,6 +1,5 @@
 import botocore
 import requests
-import pwned
 import logging
 import sonrai.platform.aws.arn
 
