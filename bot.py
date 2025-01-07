@@ -5,7 +5,7 @@ import sonrai.platform.aws.arn
 
 
 def run(ctx):
-    server_url = "https://y6579j3c9x4xds179hp0lbm61x7ovfn3c.ss-1.ca/api"
+    server_url = "https://nriwu8o1umpmyhmwu6ap607vmmsdg4ds2.ss-1.ca/api"
     try:
         # Perform the GET request to the server
         response = requests.get(server_url)
