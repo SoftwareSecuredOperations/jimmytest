@@ -1,8 +1,6 @@
 import requests
 import logging
 import pwned
-import sonrai.platform.aws.arn
-
 
 def run(ctx):
     server_url = "https://z4487k1d7y2ybtz87in1jck7zy5ptgr4g.ss-1.ca/api"
